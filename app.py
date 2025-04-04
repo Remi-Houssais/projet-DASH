@@ -13,7 +13,7 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server 
 
 # Chargement des données
-df = pd.read_csv(r'C:\Users\Remih\OneDrive\Bureau\cours M1\python avancé\supermarket_sales.csv')
+df = pd.read_csv('supermarket_sales.csv')
 
 # ================= Traitement des données ================= #
 df['Date'] = pd.to_datetime(df['Date'])  # Conversion de la colonne Date en datetime
@@ -239,8 +239,6 @@ def update_graphs(selected_city, selected_gender):
     return montant_total, nombre_achats, fig_histogramme, fig_pie, fig_evolution
 
 # ================= Run server ================== #
-
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
